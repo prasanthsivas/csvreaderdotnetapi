@@ -1,13 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using csvreaderdotnetapi.Models;
+using csvreaderdotnetapi.Models.Repository;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using csvreaderdotnetapi.Models;
+using System;
+using System.Collections.Generic;
 using System.IO;
-using Microsoft.AspNetCore.Http;
-using csvreaderdotnetapi.Models.Repository;
+using System.Linq;
+using System.Threading.Tasks;
 
 namespace csvreaderdotnetapi.Controllers
 {
@@ -56,7 +56,7 @@ namespace csvreaderdotnetapi.Controllers
                 return BadRequest();
             }
 
-            if(caption == null)
+            if (caption == null)
             {
                 return BadRequest("Caption is null.");
             }
@@ -66,7 +66,7 @@ namespace csvreaderdotnetapi.Controllers
             {
                 return NotFound("The Caption couldn't be found.");
             }
-            
+
 
             try
             {
@@ -100,7 +100,7 @@ namespace csvreaderdotnetapi.Controllers
             {
                 List<Caption> csvRows = readCSVStream(sReader);
                 _captionRepository.AddRange(csvRows);
-               return CreatedAtAction(nameof(PostCaption), new { rowCount = csvRows.Count });
+                return CreatedAtAction(nameof(PostCaption), new { rowCount = csvRows.Count });
 
             }
         }

@@ -9,7 +9,7 @@ namespace csvreaderdotnetapi.Models
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public long captionId { get; set; }
         public string imageName { get; set; }
-        public int commentNumber  { get; set; }
+        public int commentNumber { get; set; }
         public string comment { get; set; }
 
     }
